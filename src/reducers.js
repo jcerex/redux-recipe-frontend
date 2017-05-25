@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux';
+import { REPLACE_ALL_INGREDIENTS } from './actions'
 
 function ingredients(state = [], action) {
-	return state;
+	switch(action.type) {
+		case REPLACE_ALL_INGREDIENTS:
+			return [...action.ingredients];
+		default:
+			return state;
+	}  	
 }
 
 const recipesStore = combineReducers({

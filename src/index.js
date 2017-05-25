@@ -4,6 +4,7 @@ import App from './App';
 import './index.css';
 import { createStore } from 'redux';
 import recipesStore from './reducers';
+import { Provider } from 'react-redux';
 
 let store = createStore(recipesStore, {ingredients: [
 		{name: "Cheese"},
@@ -15,6 +16,8 @@ store.subscribe( () => {
 });
 
 ReactDOM.render(
-  <App store={store}/>,
+	<Provider store={store}>
+	  <App />
+  </Provider>,
   document.getElementById('root')
 );
